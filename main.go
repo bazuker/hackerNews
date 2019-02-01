@@ -11,12 +11,6 @@ import (
 	"strings"
 )
 
-func checkErr(err error) {
-	if err != nil {
-		panic(err)
-	}
-}
-
 func main() {
 	const rssUrl = "https://news.ycombinator.com/rss"
 	// check for -csv argument

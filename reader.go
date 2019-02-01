@@ -9,6 +9,12 @@ import (
 
 const RssFilename = "hacker_news.csv"
 
+func checkErr(err error) {
+	if err != nil {
+		panic(err)
+	}
+}
+
 func ReadRssFromUrl(rssUrl string, csv bool) {
 	// making a http request to get the RSS feed in XML
 	// then the package parses it and returns the channel
@@ -34,7 +40,7 @@ func ReadRssFromUrl(rssUrl string, csv bool) {
 		fmt.Println(RssFilename)
 		return
 	}
-	// otherwise just print it
+	// otherwise, just print it
 	fmt.Println(channel.Title)
 	for i, item := range channel.Item {
 		fmt.Println(i+1, item.Title)
